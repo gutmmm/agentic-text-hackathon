@@ -12,7 +12,4 @@ dependencies = [
     "langchain-community>=0.3.19",
     "pydantic>=2.10.6",
     "python-dotenv>=1.0.1",
-    "swarm-models>=0.3.2",
-    "swarms>=7.5.4",
-    "swarms-memory>=0.1.2",
 ]
