@@ -4,4 +4,15 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "aiohttp>=3.11.13",
+    "chainlit>=2.3.0",
+    "fastapi[standard]>=0.115.11",
+    "ipykernel>=6.29.5",
+    "langchain-community>=0.3.19",
+    "pydantic>=2.10.6",
+    "python-dotenv>=1.0.1",
+    "swarm-models>=0.3.2",
+    "swarms>=7.5.4",
+    "swarms-memory>=0.1.2",
+]
