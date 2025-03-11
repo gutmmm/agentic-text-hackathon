@@ -5,11 +5,12 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "agno>=1.1.9",
     "aiohttp>=3.11.13",
     "chainlit>=2.3.0",
     "fastapi[standard]>=0.115.11",
     "ipykernel>=6.29.5",
     "langchain-community>=0.3.19",
-    "pydantic>=2.10.6",
+    "openai>=1.65.5",
     "python-dotenv>=1.0.1",
 ]
