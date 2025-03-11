@@ -1,13 +1,14 @@
 from fastapi import APIRouter
-
-from agents.agent import run_agent
+from controllers.agent import run_agent
 
 router = APIRouter()
 
-class InvokeRequest():
+
+class InvokeRequest:
     message: str
 
-class InvokeResponse():
+
+class InvokeResponse:
     response: str
 
 
