@@ -4,7 +4,7 @@ from agno.agent import Agent
 from agno.models.openai import OpenAIChat
 
 
-def check_if_client_is_authorized(user_id: str) -> bool:
+'''def check_if_client_is_authorized(user_id: str) -> bool:
     """
     Use this function to check if particualr user is authorized.
 
@@ -17,34 +17,35 @@ def check_if_client_is_authorized(user_id: str) -> bool:
 
     auth_json = json.loads("resources/auth.json")
 
-    return auth_json.get(user_id, False)
+    return auth_json.get(user_id, False)'''
 
 
-def authorize_client(user_id: str) -> str:
+def check_if_client_is_authorized(user_id: str) -> bool:
     """
-    Use this function to check if particular user is authorized.
+    Use this function to check if particualr user is authorized.
 
     Args:
         user_id (str): Unique user ID
 
     Returns:
-        auth (bool): Bool value weather the user is authorized or not.
+        auth (bool): Bool value wether the user is authorized or not.
     """
-    auth_json = json.loads("resources/auth.json")
-    return
+
+    # auth_json = json.loads("resources/auth.json")
+
+    if user_id == "1234":
+        return True
+    else:
+        return False
 
 
 authorization_agent = Agent(
     name="AUTHORIZATION_AGENT",
     model=OpenAIChat("gpt-4o"),
+    tools=[check_if_client_is_authorized],
     role="You are responsible for checking if the customer is authorized in system.",
     instructions=[
-        "First you should use check_if_client_is_authorized tool to verify if client_id is authorized",
-        "If client_id is authorized",
+        "Call check_if_client_is_authorized to check if the client is autorized. True means authorized, False means not authorized."
     ],
     markdown=False,
-    add_history_to_messages=True,
-    num_history_responses=5,
-    read_chat_history=True,
-    read_tool_call_history=True,
 )

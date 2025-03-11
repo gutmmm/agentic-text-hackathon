@@ -15,9 +15,27 @@ async def invoke_agent(message: cl.Message):
                 return f"Error: Received status code {response.status}"
 
 
+@cl.action_callback("action_button")
+async def on_action(action: cl.Action):
+    print(action.payload)
+
+
 @cl.on_message
 async def main(message: cl.Message):
     response = await invoke_agent(message)
     response = response.replace("\\n", "\n")
     response = response[1:-1]
+    if "authorize" in response:
+        actions = [
+            cl.Action(
+                name="action_button",
+                icon="mouse-pointer-click",
+                payload={"value": "authorized"},
+                label="Authorize",
+            )
+        ]
+        await cl.Message(
+            content="Interact with this action button:", actions=actions
+        ).send()
+
     await cl.Message(content=response).send()
