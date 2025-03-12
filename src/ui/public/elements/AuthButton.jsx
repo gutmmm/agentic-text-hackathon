@@ -9,7 +9,11 @@ export default function AuthButton() {
       console.log("Received message:", event.data);
 
       if (event.data.action === "handle_auth_result") {
-        sendMessage({ output: "AUTH SUCCESSFUL", type: "user_message" });
+        sendMessage({
+          output:
+            "[AUTHORIZATION_SYSTEM_MESSAGE] User authenticatio successful. Proceed",
+          type: "user_message",
+        });
       }
     };
 
