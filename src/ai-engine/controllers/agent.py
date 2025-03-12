@@ -7,6 +7,9 @@ load_dotenv()
 
 def run_agent(message: dict):
     print(message)
+
     response: RunResponse = master_agent.run(message["message"])
+
+    print(dir(master_agent))
 
     return response.content

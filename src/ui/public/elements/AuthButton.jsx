@@ -9,10 +9,13 @@ export default function AuthButton() {
       console.log("Received message:", event.data);
 
       if (event.data.action === "handle_auth_result") {
+        const { status } = event.data.payload;
+        const isSuccess = status === 'USER_AUTHORIZED';
+
         sendMessage({
           output:
-            "[AUTHORIZATION_SYSTEM_MESSAGE] User authenticatio successful. Proceed",
-          type: "user_message",
+            isSuccess ? "[AUTHORIZATION_SYSTEM_MESSAGE_SUCCESS] User authentication successful. Proceed" : "[AUTHORIZATION_SYSTEM_MESSAGE_FAILED] User authenticatio unssuccesful. Access denied",
+          type: "assistant_message",
         });
       }
     };

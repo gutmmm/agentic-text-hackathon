@@ -43,7 +43,7 @@ authorization_agent = Agent(
     name="AUTHORIZATION_AGENT",
     model=OpenAIChat("gpt-4o"),
     tools=[check_if_client_is_authorized],
-    role="You are responsible for checking if the customer is authorized in system.",
+    role="You are responsible for authorizing the customer",
     instructions=[
         "Call check_if_client_is_authorized to check if the client is autorized. True means authorized, False means not authorized."
     ],

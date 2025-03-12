@@ -1,41 +1,41 @@
-id,product_name,description,category,price $
-1,Nike Air Max - Variant 1,High-performance running shoes,Shoes,120.99
-2,Adidas Ultraboost - Variant 2,Comfortable and stylish sneakers,Shoes,150.0
-3,Puma RS-X - Variant 3,Retro-styled sneakers for casual wear,Shoes,110.5
-4,The North Face Jacket - Variant 4,Waterproof and windproof jacket,Jackets,199.99
-5,Columbia Sportswear Jacket - Variant 5,Insulated jacket for winter,Jackets,180.75
-6,Levi's Denim Jacket - Variant 6,Classic denim jacket with a modern touch,Jackets,89.99
-7,Timberland Boots - Variant 7,Durable boots for outdoor activities,Footwear,160.0
-8,Dr. Martens 1460 - Variant 8,Iconic leather boots,Footwear,150.0
-9,Vans Old Skool - Variant 9,Casual skateboarding sneakers,Shoes,75.0
-10,Converse Chuck Taylor - Variant 10,Classic canvas sneakers,Shoes,65.0
-11,Patagonia Fleece Jacket - Variant 11,Warm and sustainable fleece,Jackets,130.0
-12,Under Armour Hoodie - Variant 12,Comfortable and breathable hoodie,Apparel,60.0
-13,Nike Dri-Fit T-Shirt - Variant 13,Moisture-wicking sports t-shirt,Apparel,35.0
-14,Adidas Track Pants - Variant 14,Athletic track pants with a sleek design,Apparel,55.0
-15,New Balance 574 - Variant 15,Casual and sporty sneakers,Shoes,90.0
-16,Reebok Classic Leather - Variant 16,Timeless and comfortable sneakers,Shoes,85.0
-17,Arc'teryx Beta AR Jacket - Variant 17,Premium waterproof shell jacket,Jackets,350.0
-18,Champion Sweatpants - Variant 18,Relaxed fit sweatpants for everyday wear,Apparel,40.0
-19,Herschel Backpack - Variant 19,Stylish and functional backpack,Accessories,75.0
-20,Ray-Ban Aviator Sunglasses - Variant 20,Classic aviator sunglasses,Accessories,150.0
-21,Nike Air Max - Variant 21,High-performance running shoes,Shoes,120.99
-22,Adidas Ultraboost - Variant 22,Comfortable and stylish sneakers,Shoes,150.0
-23,Puma RS-X - Variant 23,Retro-styled sneakers for casual wear,Shoes,110.5
-24,The North Face Jacket - Variant 24,Waterproof and windproof jacket,Jackets,199.99
-25,Columbia Sportswear Jacket - Variant 25,Insulated jacket for winter,Jackets,180.75
-26,Levi's Denim Jacket - Variant 26,Classic denim jacket with a modern touch,Jackets,89.99
-27,Timberland Boots - Variant 27,Durable boots for outdoor activities,Footwear,160.0
-28,Dr. Martens 1460 - Variant 28,Iconic leather boots,Footwear,150.0
-29,Vans Old Skool - Variant 29,Casual skateboarding sneakers,Shoes,75.0
-30,Converse Chuck Taylor - Variant 30,Classic canvas sneakers,Shoes,65.0
-31,Patagonia Fleece Jacket - Variant 31,Warm and sustainable fleece,Jackets,130.0
-32,Under Armour Hoodie - Variant 32,Comfortable and breathable hoodie,Apparel,60.0
-33,Nike Dri-Fit T-Shirt - Variant 33,Moisture-wicking sports t-shirt,Apparel,35.0
-34,Adidas Track Pants - Variant 34,Athletic track pants with a sleek design,Apparel,55.0
-35,New Balance 574 - Variant 35,Casual and sporty sneakers,Shoes,90.0
-36,Reebok Classic Leather - Variant 36,Timeless and comfortable sneakers,Shoes,85.0
-37,Arc'teryx Beta AR Jacket - Variant 37,Premium waterproof shell jacket,Jackets,350.0
-38,Champion Sweatpants - Variant 38,Relaxed fit sweatpants for everyday wear,Apparel,40.0
-39,Herschel Backpack - Variant 39,Stylish and functional backpack,Accessories,75.0
-40,Ray-Ban Aviator Sunglasses - Variant 40,Classic aviator sunglasses,Accessories,150.0
+id,product_name,description,category,price $, discount %
+1,Nike Air Max,High-performance running shoes,Shoes,120.99, 10
+2,Adidas Ultraboost,Comfortable and stylish sneakers,Shoes,150.0, 5
+3,Puma RS-X,Retro-styled sneakers for casual wear,Shoes,110.5, 50
+4,The North Face Jacket,Waterproof and windproof jacket,Jackets,199.99, 20
+5,Columbia Sportswear Jacket,Insulated jacket for winter,Jackets,180.75, 30
+6,Levi's Denim Jacket,Classic denim jacket with a modern touch,Jackets,89.99, 10
+7,Timberland Boots,Durable boots for outdoor activities,Footwear,160.0, 30
+8,Dr. Martens 1460,Iconic leather boots,Footwear,150.0, 40
+9,Vans Old Skool,Casual skateboarding sneakers,Shoes,75.0, 10
+10,Converse Chuck Taylor,Classic canvas sneakers,Shoes,65.0, 5
+11,Patagonia Fleece Jacket,Warm and sustainable fleece,Jackets,130.0, 5
+12,Under Armour Hoodie,Comfortable and breathable hoodie,Apparel,60.0, 10
+13,Nike Dri-Fit T-Shirt,Moisture-wicking sports t-shirt,Apparel,35.0, 15
+14,Adidas Track Pants,Athletic track pants with a sleek design,Apparel,55.0, 15
+15,New Balance 574,Casual and sporty sneakers,Shoes,90.0, 0
+16,Reebok Classic Leather,Timeless and comfortable sneakers,Shoes,85.0, 0
+17,Arc'teryx Beta AR Jacket,Premium waterproof shell jacket,Jackets,350.0, 0
+18,Champion Sweatpants,Relaxed fit sweatpants for everyday wear,Apparel,40.0, 0
+19,Herschel Backpack,Stylish and functional backpack,Accessories,75.0, 0
+20,Ray-Ban Aviator Sunglasses,Classic aviator sunglasses,Accessories,150.0, 0
+21,Nike Air Max 2.0,High-performance running shoes,Shoes,120.99, 0
+22,Adidas Ultraboost 2.0,Comfortable and stylish sneakers,Shoes,150.0, 0
+23,Puma RS-X 2.0,Retro-styled sneakers for casual wear,Shoes,110.5, 0
+24,The North Face Jacket 2.0,Waterproof and windproof jacket,Jackets,199.99, 0
+25,Columbia Sportswear Jacket 2.0,Insulated jacket for winter,Jackets,180.75, 0
+26,Levi's Denim Jacket 2.0,Classic denim jacket with a modern touch,Jackets,89.99, 0
+27,Timberland Boots 2.0,Durable boots for outdoor activities,Footwear,160.0, 0
+28,Dr. Martens 1460 2.0,Iconic leather boots,Footwear,150.0, 0
+29,Vans Old Skool 2.0,Casual skateboarding sneakers,Shoes,75.0, 0
+30,Converse Chuck Taylor 2.0,Classic canvas sneakers,Shoes,65.0, 0
+31,Patagonia Fleece Jacket 2.0,Warm and sustainable fleece,Jackets,130.0, 0
+32,Under Armour Hoodie 2.0,Comfortable and breathable hoodie,Apparel,60.0, 0
+33,Nike Dri-Fit T-Shirt 2.0,Moisture-wicking sports t-shirt,Apparel,35.0, 0
+34,Adidas Track Pants 2.0,Athletic track pants with a sleek design,Apparel,55.0, 0
+35,New Balance 574 2.0,Casual and sporty sneakers,Shoes,90.0, 0
+36,Reebok Classic Leather 2.0,Timeless and comfortable sneakers,Shoes,85.0, 0
+37,Arc'teryx Beta AR Jacket 2.0,Premium waterproof shell jacket,Jackets,350.0, 0
+38,Champion Sweatpants 2.0,Relaxed fit sweatpants for everyday wear,Apparel,40.0, 0
+39,Herschel Backpack 2.0,Stylish and functional backpack,Accessories,75.0, 0
+40,Ray-Ban Aviator Sunglasses 2.0,Classic aviator sunglasses,Accessories,150.0, 0

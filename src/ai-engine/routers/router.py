@@ -146,39 +146,16 @@ def authorize():
             }
 
             const message = clientId === 'aaa' ? 'USER_AUTHORIZED' : 'WRONG_AUTHORIZATION_CREDENTIALS';
-            
-            try {
-                const response = await fetch('http://0.0.0.0:8001/invoke', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify({ message })
-                });
-
-                console.log('!!! Response:', response);
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                const result = await response.json();
-                console.log('Authorization result:', result, window.opener);
-                
-                // Send message to parent window (Chainlit chat)
-                if (window.opener) {
-                    window.opener.postMessage({
-                        action: "handle_auth_result",
-                        payload: {
-                            status: message,
-                            clientId: clientId
-                        }
-                    }, "*");
-                    window.close();
-                }
-            } catch (error) {
-                console.error('Error during authorization:', error);
+            // Send message to parent window (Chainlit chat)
+            if (window.opener) {
+                window.opener.postMessage({
+                    action: "handle_auth_result",
+                    payload: {
+                        status: message,
+                        clientId: clientId
+                    }
+                }, "*");
+                window.close();
             }
         }
     </script>

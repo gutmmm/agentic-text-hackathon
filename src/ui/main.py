@@ -1,6 +1,7 @@
 import chainlit as cl
 import aiohttp
 
+
 @cl.step(type="tool")
 async def invoke_agent(message: cl.Message):
     print("Input message", message.content)
@@ -13,17 +14,16 @@ async def invoke_agent(message: cl.Message):
             else:
                 return f"Error: Received status code {response.status}"
 
+
 @cl.on_message
 async def main(message: cl.Message):
     response = await invoke_agent(message)
     response = response.replace("\\n", "\n")
     response = response[1:-1]
-    
-    if "authorize" in response:
+    if "authorize" in response or "authorization" in response:
         auth_button = cl.CustomElement(name="AuthButton")
         await cl.Message(
-            content="Please authorize first:", 
-            elements=[auth_button]
+            content="Please authorize first:", elements=[auth_button]
         ).send()
         return
 
