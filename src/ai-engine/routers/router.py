@@ -164,7 +164,19 @@ def authorize():
                 }
 
                 const result = await response.json();
-                console.log('Authorization result:', result);
+                console.log('Authorization result:', result, window.opener);
+                
+                // Send message to parent window (Chainlit chat)
+                if (window.opener) {
+                    window.opener.postMessage({
+                        action: "handle_auth_result",
+                        payload: {
+                            status: message,
+                            clientId: clientId
+                        }
+                    }, "*");
+                    window.close();
+                }
             } catch (error) {
                 console.error('Error during authorization:', error);
             }
