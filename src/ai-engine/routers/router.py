@@ -1,5 +1,6 @@
 import json
 import requests
+import os
 
 from fastapi import APIRouter
 from fastapi.responses import HTMLResponse
@@ -11,6 +12,18 @@ router = APIRouter()
 
 class InvokeRequest(BaseModel):
     message: str
+
+
+class AuthRequest(BaseModel):
+    status: bool
+
+
+@router.post("/save-auth")
+def save_auth(request: AuthRequest):
+    auth_file_path = os.path.join(os.path.dirname(__file__), '..', 'resources', 'auth.json')
+    with open(auth_file_path, 'w') as f:
+        json.dump({"auth": request.status}, f)
+    return {"message": "Auth status saved"}
 
 
 class InvokeResponse:
@@ -155,7 +168,9 @@ def authorize():
                         clientId: clientId
                     }
                 }, "*");
-                window.close();
+                setTimeout(() => {
+                    window.close();
+                }, 500);
             }
         }
     </script>
