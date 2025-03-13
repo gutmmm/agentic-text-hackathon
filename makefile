@@ -2,7 +2,7 @@ backend:
 	cd src/ai-engine && python server.py
 
 frontend:
-	cd src/ui && chainlit run main.py
+	cd src/ui && chainlit run --host 0.0.0.0 --port 8000 main.py
 
 playground:
 	cd src/ai-engine && uv run python -m agents.master_agent
