@@ -17,4 +17,5 @@ order_management_agent = Agent(
     num_history_responses=5,
     read_chat_history=True,
     read_tool_call_history=True,
+    retries=3,
 )

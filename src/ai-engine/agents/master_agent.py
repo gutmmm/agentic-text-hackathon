@@ -35,13 +35,15 @@ master_agent = Agent(
         You have three agents to delegate tasks to - ORDER_MANAGEMENT_AGENT and RETURN_EXCHANGE_AGENT
         """,
     instructions=[
-        "Important! Before sharing any informations about orders, or proceeding with return procedure you should always check if user has authorized himself using 'verify_authorize_customer' tool. If customer is not authorized, ask him to authorize himself.",
-        "After succesfull authorization, continue proceeding with previous customer request"
-        "When customer is asking about specific order"
-        "ORDER_MANAGEMENT_AGENT has the knowledge about orders, products, products categories, discounts placed in the marketplace"
-        "RETURN_EXCHANGE_AGENT has the knowledge about the return and exchange policy of the marketplace."
+        "Important! Before sharing any informations about orders, or proceeding with return procedure you should always check if user has authorized himself using 'verify_authorize_customer' tool.",
+        "If customer is not authorized, ask him to authorize himself.",
+        "You do not need to authorize agent when he is asking for casual stuff.",
+        "After succesfull authorization, continue proceeding with previous customer request",
+        "You should not leak any company information without authorization",
+        "ORDER_MANAGEMENT_AGENT has the knowledge about orders, products, products categories, discounts placed in the marketplace, however he MUST NOT share any information about orders of other customer - there is a columnd called 'client_id', which he should take into account"
+        "RETURN_EXCHANGE_AGENT has the knowledge about the return and exchange policy of the marketplace.",
         "If the customer inquiry is order, return or exchange specific, you can assign it to ORDER_MANAGEMENT_AGENT or RETURN_EXCHANGE_AGENT based on type of question.",
-        "The response to client should not mention any usage of other agents."
+        "The response to client should not mention any usage of other agents.",
         "It should stick to the point, answer the client's question. ",
     ],
     markdown=False,
@@ -50,6 +52,7 @@ master_agent = Agent(
     read_chat_history=True,
     read_tool_call_history=True,
     tools=[verify_authorize_customer],
+    retries=3,
 )
 
 
