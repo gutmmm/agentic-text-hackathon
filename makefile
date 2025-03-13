@@ -16,5 +16,5 @@ service:
 deploy:
 	@echo "Starting deploy..."
 	@(cd src/ai-engine && python server.py) & \
-	(cd src/ui && chainlit run main.py) & \
+	(cd src/ui && chainlit run --host 0.0.0.0 --port 8000 main.py) & \
 	wait
