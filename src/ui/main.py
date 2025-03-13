@@ -18,8 +18,10 @@ async def invoke_agent(message: cl.Message):
 @cl.on_message
 async def main(message: cl.Message):
     response = await invoke_agent(message)
+    print("!!! RESPONSE", response, response.get("should_authorize_response").get('need_authorization'))
     agent_response = response.get("agent_response").replace("\\n", "\n")
-    if response.get("should_authorize_response"):
+    print("!!! AGENT RESPONSE", agent_response, response.get("should_authorize_response").get('need_authorization'))
+    if response.get("should_authorize_response").get('need_authorization'):
         auth_button = cl.CustomElement(name="AuthButton")
         await cl.Message(
             content="Please authorize first:", elements=[auth_button]

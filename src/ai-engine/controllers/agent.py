@@ -1,17 +1,18 @@
+import os
 from dotenv import load_dotenv
 from agno.agent import RunResponse
 from agents.master_agent import master_agent
 
 
 from pydantic import BaseModel
-from langchain_community.llms import ChatOpenAI
+from langchain_openai import ChatOpenAI
 
 
 load_dotenv()
 
 
 class ResponseModel(BaseModel):
-    nedd_authorization: bool
+    need_authorization: bool
 
 
 def run_agent(message: dict):
@@ -23,11 +24,11 @@ def run_agent(message: dict):
     Otherwise return False.
     """
 
-    llm = OpenAI(model_name="gpt-4o")
+    llm = ChatOpenAI(model_name="gpt-4o", api_key=os.getenv("OPENAI_API_KEY"))
     llm = llm.with_structured_output(ResponseModel)
     should_authorize_response = llm.invoke(prompt)
 
-    print(should_authorize_response)
+    print('!!! LLM CALLL', should_authorize_response, response.content)
 
     return {
         "agent_response": response.content,
