@@ -1,5 +1,6 @@
 import chainlit as cl
 import aiohttp
+import requests
 
 from pydantic import BaseModel
 import json
@@ -8,6 +9,11 @@ import json
 class ResponseModel(BaseModel):
     agent_response: str
     need_authorization: bool
+
+
+@cl.on_chat_start
+def on_chat_start():
+    requests.get("http://0.0.0.0:8001/auth")
 
 
 @cl.step()

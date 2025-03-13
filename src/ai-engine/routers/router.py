@@ -19,6 +19,26 @@ class AuthRequest(BaseModel):
     clientId: str
 
 
+@router.get("/auth")
+def get_auth():
+    auth_data = {"auth": False, "clientId": None}
+    file_path = "resources/auth.json"
+    directory = os.path.dirname(file_path)
+    if not os.path.exists(directory):
+        try:
+            os.makedirs(directory)
+        except OSError as e:
+            print(f"Error creating directory {directory}: {e}")
+            return
+
+    try:
+        with open(file_path, "w") as f:
+            json.dump(auth_data, f)
+        print(f"Successfully created {file_path}")
+    except OSError as e:
+        print(f"Error writing to {file_path}: {e}")
+
+
 @router.post("/save-auth")
 def save_auth(request: AuthRequest):
     auth_file_path = os.path.join(
