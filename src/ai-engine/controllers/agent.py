@@ -22,7 +22,18 @@ class ResponseModel(BaseModel):
 
 
 def run_agent(message: dict):
-    response = master_agent.run(message["message"])
+    with open("resources/auth.json", "r") as f:
+        auth_data = json.load(f)
+        if auth_data["clientId"] is None:
+            clientId = ""
+        else:
+            clientId = auth_data["clientId"]
+
+        message = f""" [CLIENT ID] {clientId}. \n\n {message['message']}"""
+
+    print(message)
+
+    response = master_agent.run(message)
 
     prompt = f"""
     Task: Analyze folowing response - {response.content}. 
