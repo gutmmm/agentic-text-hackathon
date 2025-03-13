@@ -173,7 +173,7 @@ def authorize():
                 }, "*");
                 setTimeout(() => {
                     window.close();
-                }, 500);
+                }, 100);
             }
         }
     </script>

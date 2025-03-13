@@ -21,7 +21,7 @@ export default function AuthButton() {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ status: isSuccess, clientId}),
+            body: JSON.stringify({ status: isSuccess, clientId }),
           });
 
           if (!response.ok) {
@@ -33,8 +33,8 @@ export default function AuthButton() {
 
         sendMessage({
           output: isSuccess
-            ? "[AUTHORIZATION_SYSTEM_MESSAGE_SUCCESS] User authentication successful. Proceed"
-            : "[AUTHORIZATION_SYSTEM_MESSAGE_FAILED] User authenticatio unssuccesful. Access denied",
+            ? "User authentication successful - proceed ..."
+            : "User authenticatio unssuccesful - access denied",
           type: "assistant_message",
         });
       }
