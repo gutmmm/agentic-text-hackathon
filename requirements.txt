@@ -3,7 +3,6 @@ aiohttp==3.11.13
 chainlit==2.3.0
 duckdb==1.2.1
 fastapi[standard]==0.115.11
-ipykernel==6.29.5
 langchain-community==0.3.19
 langchain-openai==0.3.8
 openai==1.65.5
