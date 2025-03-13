@@ -25,7 +25,7 @@ app.include_router(router)
 
 
 def create_auth_file():
-    auth_data = {"auth": False}
+    auth_data = {"auth": False, "clientId": None}
     file_path = "resources/auth.json"
     directory = os.path.dirname(file_path)
     if not os.path.exists(directory):

@@ -30,8 +30,8 @@ def run_agent(message: dict):
     Otherwise return False.
     """
 
-    llm = ChatOpenAI(model_name="gpt-4o", api_key=os.getenv("OPENAI_API_KEY"))
-    llm = llm.with_structured_output(ResponseModel)
+    llm = ChatOpenAI(model_name="gpt-4o")
+    llm = llm.with_structured_output(ResponseSchema)
     model_response = llm.invoke(prompt)
 
     response = ResponseModel(

@@ -16,13 +16,16 @@ class InvokeRequest(BaseModel):
 
 class AuthRequest(BaseModel):
     status: bool
+    clientId: str
 
 
 @router.post("/save-auth")
 def save_auth(request: AuthRequest):
-    auth_file_path = os.path.join(os.path.dirname(__file__), '..', 'resources', 'auth.json')
-    with open(auth_file_path, 'w') as f:
-        json.dump({"auth": request.status}, f)
+    auth_file_path = os.path.join(
+        os.path.dirname(__file__), "..", "resources", "auth.json"
+    )
+    with open(auth_file_path, "w") as f:
+        json.dump({"auth": request.status, "clientId": request.clientId}, f)
     return {"message": "Auth status saved"}
 
 

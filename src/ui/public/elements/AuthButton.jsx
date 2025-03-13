@@ -1,15 +1,17 @@
-import { useEffect } from "react";
-import { useChatInteract } from "@chainlit/react-client";
+import { useEffect, useRef } from "react";
+import { useChatInteract, useChatMessages } from "@chainlit/react-client";
 
 export default function AuthButton() {
-  const { sendMessage, replyMessage, clear } = useChatInteract();
+  const { sendMessage } = useChatInteract();
+  const { messages } = useChatMessages();
+  const numberOfMessagesRef = useRef(messages.length);
 
   useEffect(() => {
     const handleMessage = async (event) => {
       console.log("Received message:", event.data);
 
       if (event.data.action === "handle_auth_result") {
-        const { status } = event.data.payload;
+        const { status, clientId } = event.data.payload;
         const isSuccess = status === "USER_AUTHORIZED";
 
         // Save auth status to file
@@ -19,7 +21,7 @@ export default function AuthButton() {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ status: isSuccess }),
+            body: JSON.stringify({ status: isSuccess, clientId}),
           });
 
           if (!response.ok) {
@@ -41,6 +43,12 @@ export default function AuthButton() {
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
   }, []);
+
+  useEffect(() => {
+    if (numberOfMessagesRef.current !== messages.length) {
+      deleteElement("AuthButton");
+    }
+  }, [messages]);
 
   const handleAuth = async () => {
     const width = 500;

@@ -35,11 +35,9 @@ master_agent = Agent(
         You have three agents to delegate tasks to - ORDER_MANAGEMENT_AGENT and RETURN_EXCHANGE_AGENT
         """,
     instructions=[
-        # "First you need to check if a customer is asking some basic chit-chat questions. If so you don't need to verify him. If he is asking for checking his orders or looking through his account you need to call 'verify_authorize_customer' tool.",
-        # "Then proceed with other instructions. If he is not verified you should message the client with '[AUTHORIZATION_NEEDED]' message",
-        ""
         "Important! Before sharing any informations about orders, or proceeding with return procedure you should always check if user has authorized himself using 'verify_authorize_customer' tool. If customer is not authorized, ask him to authorize himself.",
         "After succesfull authorization, continue proceeding with previous customer request"
+        "When customer is asking about specific order"
         "ORDER_MANAGEMENT_AGENT has the knowledge about orders, products, products categories, discounts placed in the marketplace"
         "RETURN_EXCHANGE_AGENT has the knowledge about the return and exchange policy of the marketplace."
         "If the customer inquiry is order, return or exchange specific, you can assign it to ORDER_MANAGEMENT_AGENT or RETURN_EXCHANGE_AGENT based on type of question.",
@@ -52,12 +50,9 @@ master_agent = Agent(
     read_chat_history=True,
     read_tool_call_history=True,
     tools=[verify_authorize_customer],
-    # debug_mode=True,
-    monitoring=True,
 )
 
-### PLAYGROUND FOR TESTS PURPOSES ONLY ###
-app = Playground(agents=[master_agent]).get_app()
 
 if __name__ == "__main__":
+    app = Playground(agents=[master_agent]).get_app()
     serve_playground_app("agents.master_agent:app", reload=True)

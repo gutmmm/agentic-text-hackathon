@@ -6,3 +6,10 @@ playground:
 
 frontend:
 	cd src/ui && uv run chainlit run main.py -w
+
+
+service:
+	@echo "Starting backend and frontend services..."
+	@(cd src/ai-engine && uv run python server.py) & \
+	(cd src/ui && uv run chainlit run main.py -w) & \
+	wait
