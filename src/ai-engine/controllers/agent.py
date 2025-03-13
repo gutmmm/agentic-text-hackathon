@@ -28,9 +28,6 @@ def run_agent(message: dict):
             clientId = auth_data["clientId"]
 
         message = f""" [CLIENT ID] {clientId}. \n\n {message['message']}"""
-
-    print(message)
-
     response = master_agent.run(message)
 
     prompt = f"""
