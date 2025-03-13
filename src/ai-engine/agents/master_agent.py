@@ -7,20 +7,23 @@ from agno.playground import Playground, serve_playground_app
 # from agents.sub_agents.authorization_agent import authorization_agent
 from agents.sub_agents.order_management_agent import order_management_agent
 from agents.sub_agents.return_exchange_agent import return_exchange_agent
+from pydantic import BaseModel, Field
 
 
 def verify_authorize_customer() -> str:
     # Get the absolute path to resources/auth.json
-    auth_file_path = os.path.join(os.path.dirname(__file__), '..', 'resources', 'auth.json')
-    
-    with open(auth_file_path, 'r') as f:
+    auth_file_path = os.path.join(
+        os.path.dirname(__file__), "..", "resources", "auth.json"
+    )
+
+    with open(auth_file_path, "r") as f:
         auth_data = json.load(f)
-        
-    is_authorized = auth_data.get('auth', False)
-    
+
+    is_authorized = auth_data.get("auth", False)
+
     if not is_authorized:
         return "[AUTHORIZATION_NEEDED]"
-        
+
     return "User authorized"
 
 
@@ -49,7 +52,6 @@ master_agent = Agent(
     read_chat_history=True,
     read_tool_call_history=True,
     tools=[verify_authorize_customer],
-    # show_tool_calls=True,
     debug_mode=True,
     monitoring=True,
 )
